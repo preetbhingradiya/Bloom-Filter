@@ -1,0 +1,21 @@
+{
+  "name": "bloom-filter",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "start": "node index.js",
+    "dev": "npx ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "murmurhash": "^2.0.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

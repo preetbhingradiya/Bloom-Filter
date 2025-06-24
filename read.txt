@@ -1,0 +1,64 @@
+A false positive means:
+
+The Bloom filter says "Yes, the item exists"
+But in reality, the item is not actually in the set
+
+Example = ["apple", "banana", "cherry"]
+input = "grape" Some time bloom filter give true item exit but Acctual item not exit
+
+
+A false negative means:
+
+The Bloom filter says "No, the item does not exist"
+But in reality, the item is actually in the set
+
+
+
+| Case           | In Set (DB)  | Bloom Filter Says   | Result           |
+| -------------- | ------       | -----------------   | ---------------- |
+| True Positive  | ✅           | ✅                 | ✅ Correct        |
+| False Positive | ❌           | ✅                 | ❌ Incorrect      |
+| False Negative | ✅           | ❌                 | ❌ **Impossible** |
+| True Negative  | ❌           | ❌                 | ✅ Correct        |
+
+* Using only 1 hash function increases false positives
+when increse hash functin then the false positive is decrese
+
+/ \                    |
+ | up hash function   \ / down false positive
+
+Set bit 0 in byte 3 (bit index 24) for key 70b4a0d2-1356-4e6b-a8ad-7780488c5147
+Set bit 2 in byte 7 (bit index 58) for key 22986695-288b-4f1a-a184-c700674e83ad
+Set bit 7 in byte 5 (bit index 47) for key 5e702b76-02ed-4c9e-b9a8-b8832719ac25
+Set bit 6 in byte 2 (bit index 22) for key 4a04976c-9e1d-4d90-bc72-0f1edbde1d54
+Set bit 2 in byte 3 (bit index 26) for key ab45dfe8-34e6-414f-9e32-7f6c1ddd50fc
+Set bit 4 in byte 1 (bit index 12) for key 2a3225f6-d7dc-4034-82dd-697e9f5b95d4
+Set bit 4 in byte 0 (bit index 4) for key 45251cd4-ecb3-4eb9-8709-c4c1d0ae8126
+Set bit 1 in byte 3 (bit index 25) for key 1b84f51d-63a9-42a1-bfc0-56fff2050127
+Set bit 1 in byte 3 (bit index 25) for key e3d36407-c974-4df5-965f-2d5a78908ec3
+Set bit 5 in byte 0 (bit index 5) for key 8078b9bc-2833-4d58-b24d-bcdca2afd148
+[
+  '70b4a0d2-1356-4e6b-a8ad-7780488c5147',
+  '22986695-288b-4f1a-a184-c700674e83ad',
+  '5e702b76-02ed-4c9e-b9a8-b8832719ac25',
+  '4a04976c-9e1d-4d90-bc72-0f1edbde1d54',
+  'ab45dfe8-34e6-414f-9e32-7f6c1ddd50fc',
+  '2a3225f6-d7dc-4034-82dd-697e9f5b95d4',
+  '45251cd4-ecb3-4eb9-8709-c4c1d0ae8126',
+  '1b84f51d-63a9-42a1-bfc0-56fff2050127',
+  'e3d36407-c974-4df5-965f-2d5a78908ec3',
+  '8078b9bc-2833-4d58-b24d-bcdca2afd148',
+  'a0b3893a-15fc-4237-8348-428ee754a1d0',
+  'b010911e-0c83-48dd-bf4b-52194b20091f',
+  '173b3b39-1b0c-40d2-bbcf-f78c5b819dcc',
+  '111f5510-5e2f-42a1-8b59-1c2c6f0fdd89',
+  '37a23273-1ec7-4ba5-bfcb-03cafb9634f7',
+  '330c9f1a-ee6b-4985-8d1e-8bcbbb37af9b',
+  'f1afacd4-1a54-41c7-bb3d-b0b05ed4addb',
+  'da42a666-fe70-44b1-9162-f2979d8193c7',
+  '7d203b1f-00de-47f4-8a10-214319cfd615',
+  '4cc35e1c-2a0d-4cea-9bd8-284a91854c4e'
+]
+
+//HERE use of first boolean array that time see at time two value applie in same INDEX like 24 
+so HERE index is alredy full still here seconde index move in 24
