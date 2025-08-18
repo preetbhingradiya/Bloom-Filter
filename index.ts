@@ -9,7 +9,8 @@ const allKeys: string[] = [];
 
 // Add for existing postive rate
 for (let index = 0; index < 10; index++) {
-  const id = uuid4().toString();
+  let id = uuid4().toString();
+  id = 'abc'
   allKeys.push(id);
   existing.add(id);
 }
